@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현대해상 다이렉트 - Mobile Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo"><span class="blue">현대해상</span> <span class="orange">다이렉트</span></div>
+    <div class="menu-icon">☰</div>
+  </header>
+
+  <main>
+    <section class="greeting">
+      <p> 고객님,<br>어느 보험을 찾으신가요?</p>
+    </section>
+
+    <section class="main-card">
+      <div class="card auto">
+        <h2>자동차</h2>
+        <button>계산/가입</button>
+        <button class="outline">건신/재가입</button>
+        <img src="img/car.png" alt="자동차">
+      </div>
+      <div class="card driver">
+        <h2>운전자</h2>
+        <img src="img/driver.png" alt="운전자">
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card"><p>포트</p><img src="img/pet.png" alt></div>
+      <div class="card"><p>장애/화재</p><img src="img/firehouse.png" alt></div>
+      <div class="card"><p>어린이/태아</p><img src="img/baby.png" alt></div>
+      <div class="card"><p>건강</p><img src="img/heart.png" alt></div>
+      <div class="card"><p>여행/고프</p><img src="img/travel.png" alt></div>
+      <div class="card"><p>보험진단</p><img src="img/target.png" alt></div>
+    </section>
+
+    <section class="banner">
+      <p><strong>자동차보험료 결제혜택</strong> 최대 3만원!</p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <div>포허핀팀</div>
+    <div>혜택</div>
+    <div class="active">상품</div>
+    <div>알림</div>
+    <div>MY</div>
+  </nav>
+  <div class="icon-wrapper">
+    <div class="speech-bubble" id="speech">안녕하세요!</div>
+    <div class="icon" id="clickable-icon">
+      <img src="images/index.png" alt="아이콘 이미지" />
+    </div>
+  </div>
+
+  <script>
+    const bubble = document.getElementById('speech');
+    const icon = document.querySelector('.icon');
+    const messages = [
+      "무엇을 도와드릴까요?",
+      "상담사가 기다리고 있어요!",
+      "어서 눌러주세요!",
+      "빠른 상담이 가능해요!",
+      "클릭해보세요!",
+    ];
+
+    function showMessage() {
+      const message = messages[Math.floor(Math.random() * messages.length)];
+      bubble.textContent = message;
+      bubble.classList.add('show');
+
+      icon.classList.add('pulse');
+
+      setTimeout(() => {
+        bubble.classList.remove('show');
+        icon.classList.remove('pulse');
+      }, 2500);
+    }
+
+    setInterval(showMessage, 5000);
+
+    // 클릭하면 다른 페이지로 이동
+    icon.addEventListener('click', () => {
+      window.location.href = 'https://new-hyundai-chatbot.web.app/';
+    });
+  </script>
+</body>
+</html>
+
