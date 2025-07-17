@@ -6,6 +6,61 @@
   <title>현대해상 다이렉트 - Mobile Clone</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* 원본 CSS 아래에 추가 */
+
+    /* 1. body에 max-width 및 중앙 정렬 추가 */
+    body {
+      max-width: 420px;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* 2. bottom-nav 중앙 정렬 및 너비 제한 */
+    .bottom-nav {
+      max-width: 420px;
+      left: 50%;
+      transform: translateX(-50%);
+      position: fixed;
+      /* 기존 스타일 그대로 유지 */
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0.8rem 0;
+      background-color: #fff;
+      box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* 3. icon-wrapper 위치 조정 */
+    .icon-wrapper {
+      position: fixed;
+      bottom: 65px;
+      right: calc(50% - 210px);
+      z-index: 999;
+    }
+
+    /* 4. 모바일에서는 원래대로 */
+    @media (max-width: 420px) {
+      body {
+        max-width: 100%;
+        margin: 0;
+        box-shadow: none;
+      }
+      .bottom-nav {
+        max-width: 100%;
+        left: 0;
+        transform: none;
+      }
+      .icon-wrapper {
+        right: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="top-bar">
@@ -92,4 +147,3 @@
   </script>
 </body>
 </html>
-
